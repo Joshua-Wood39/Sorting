@@ -1,12 +1,16 @@
 # TO-DO: Complete the selection_sort() function below
 def selection_sort(arr):
-    for i in range(1, len(arr)):
-        temp = arr[i]
-        j = i
-        while j > 0 and temp < arr[j - 1]:
-            arr[j] = arr[j - 1]
-            j -= 1
-        arr[j] = temp
+    for index in range(len(arr) - 1):
+        current = index
+
+        for j in range(index + 1, len(arr)):
+            if arr[current] > arr[j]:
+                current = j
+
+        temp = arr[index]
+        arr[index] = arr[current]
+        arr[current] = temp
+
     return arr
 
 
